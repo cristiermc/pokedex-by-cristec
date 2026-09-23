@@ -1,1 +1,12 @@
-console.log("Pokédex TypeScript Lite - Ambiente configurando com sucesso!")
+// Instanciar o PokeApiService
+import { PokeApiService } from "./services/PokeApiService.js";
+const pokeApiService = new PokeApiService();
+
+try{
+    const pokemon = await pokeApiService.buscarPokemon("pikachu");
+    console.log(pokemon)
+} catch (erro) {
+    console.log(`[ERRO] ${erro}`)
+}
+
+
