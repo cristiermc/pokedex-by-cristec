@@ -18,12 +18,12 @@ export class PokeApiService {
     async buscarPokemon(nome: string): Promise<Pokemon> {
         const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
         const resposta = await fetch(url);
-        if(!resposta.ok){
+        if(!resposta.ok) {
             throw new Error("Pokémon não encontrado");
             
         }
         
-        const dados: PokeApiPokemon = await resposta.json()
+        const dados: PokeApiPokemon = await resposta.json();
         
         const pokemon: Pokemon = {
             id: dados.id,

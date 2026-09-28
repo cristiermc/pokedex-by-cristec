@@ -5,7 +5,7 @@ export class BoxService {
     private catalogo: Pokemon[] = [];
 
     adicionar(pokemon: Pokemon): boolean {
-        const jaExiste = this.catalogo.some (
+        const jaExiste = this.catalogo.some(
             (item) => item.id === pokemon.id
         );
 
@@ -23,15 +23,15 @@ export class BoxService {
     }
 
     remover(id:number): boolean {
-        const indice = this.catalogo.findIndex (
+        const indice = this.catalogo.findIndex(
             (pokemon) => pokemon.id === id
         );
 
-        if(indice === -1){
+        if (indice === -1) {
             return false;
         }
 
-        this.catalogo.splice (indice, 1);
+        this.catalogo.splice(indice, 1);
         return true;
     }
 }
