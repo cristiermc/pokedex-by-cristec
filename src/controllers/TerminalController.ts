@@ -50,9 +50,9 @@ export class TerminalController {
 
             const catalogo = this.boxService.listar();
 
-            for (const pokemon of catalogo) {
+            catalogo.forEach((pokemon) => {
                 this.exibirPokemon(pokemon);
-            }
+            });
 
             const removido = this.boxService.remover(25);
 
@@ -66,9 +66,9 @@ export class TerminalController {
 
             const catalogoDepoisDaRemocao = this.boxService.listar();
 
-            for (const pokemon of catalogoDepoisDaRemocao) {
+            catalogoDepoisDaRemocao.forEach((pokemon) => {
                 this.exibirPokemon(pokemon);
-            }
+            });
         } catch (erro) {
             if (erro instanceof Error) {
                 console.log(`[ERRO] ${erro.message}`);
