@@ -690,11 +690,12 @@ Essas tecnologias não são necessárias para o escopo atual do mini-projeto.
 
 ## 🎥 Entrega em vídeo
 
-O curso estabelece a apresentação do projeto em vídeo como parte da entrega do mini-projeto.
+O vídeo de demonstração do projeto foi disponibilizado no YouTube como **não listado**.
 
-O vídeo deve apresentar o funcionamento da aplicação e demonstrar os principais requisitos implementados.
+No vídeo são apresentados o funcionamento da aplicação, a consulta à PokeAPI, o catálogo local, a persistência dos dados em `pc_box.json` e os principais fluxos implementados.
 
-> O vídeo é um requisito da entrega acadêmica. A documentação não afirma que essa etapa já foi entregue.
+**Vídeo da entrega:**
+https://youtu.be/XqtRMlhYKxk
 
 ---
 
@@ -756,4 +757,4 @@ Durante o desenvolvimento foram praticados:
 
 **Cristier Machado Cittadin**
 
-Projeto desenvolvido para fins acadêmicos no curso de Fundamentos para Back-end: JavaScript, TypeScript e PostgreSQL.
+Projeto desenvolvido para fins acadêmicos no curso de Fundamentos para Back-end: JavaScript, TypeScript.
