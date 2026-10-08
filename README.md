@@ -756,4 +756,4 @@ Durante o desenvolvimento foram praticados:
 
 **Cristier Machado Cittadin**
 
-Projeto desenvolvido para fins acadêmicos no curso de Fundamentos para Back-end: JavaScript, TypeScript e PostgreSQL.
+Projeto desenvolvido para fins acadêmicos no curso de Fundamentos para Back-end: JavaScript, TypeScript.
