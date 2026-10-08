@@ -10,8 +10,14 @@ interface PokeApiPokemon {
     types: {
         type: {
             name: string;
-        }
-    }[]
+        };
+    }[];
+    stats: {
+        base_stat: number;
+        stat: {
+            name: string;
+        };
+    }[];
 }
 // Chamada à PokeAPI
 export class PokeApiService {
@@ -29,6 +35,11 @@ export class PokeApiService {
             id: dados.id,
             name: dados.name,
             types: dados.types.map((item) => item.type.name),
+            stats: {
+                hp:dados.stats.find((item) => item.stat.name === "hp")?.base_stat ?? 0,
+                attack:dados.stats.find((item) => item.stat.name === "attack")?.base_stat ?? 0,
+                defense:dados.stats.find((item) => item.stat.name === "defense")?.base_stat ?? 0
+            },
             height: dados.height,
             weight: dados.weight
         }

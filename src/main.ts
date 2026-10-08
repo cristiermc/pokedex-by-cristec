@@ -5,6 +5,8 @@ import { BoxService } from "./services/BoxService.js";
 const pokeApiService = new PokeApiService();
 const boxService = new BoxService();
 
+await boxService.inicializar();
+
 const terminalController = new TerminalController(
     pokeApiService,
     boxService

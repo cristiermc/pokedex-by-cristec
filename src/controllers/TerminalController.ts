@@ -1,18 +1,23 @@
 import { PokeApiService } from "../services/PokeApiService.js";
 import { BoxService } from "../services/BoxService.js";
+
 import type { Pokemon } from "../models/Pokemon.js";
 
 export class TerminalController {
+
     constructor(
         private readonly pokeApiService: PokeApiService,
         private readonly boxService: BoxService
     ) {}
 
     async executar(): Promise<void> {
+
         try {
+
             const pikachu = await this.pokeApiService.buscarPokemon("pikachu");
 
-            const pikachuAdicionado = this.boxService.adicionar(pikachu);
+            const pikachuAdicionado =
+                await this.boxService.adicionar(pikachu);
 
             if (pikachuAdicionado) {
                 console.log("[OK] Pikachu adicionado ao catálogo.");
@@ -20,9 +25,11 @@ export class TerminalController {
                 console.log("[AVISO] Pikachu já está no catálogo.");
             }
 
-            const charmander = await this.pokeApiService.buscarPokemon("charmander");
+            const charmander =
+                await this.pokeApiService.buscarPokemon("charmander");
 
-            const charmanderAdicionado = this.boxService.adicionar(charmander);
+            const charmanderAdicionado =
+                await this.boxService.adicionar(charmander);
 
             if (charmanderAdicionado) {
                 console.log("[OK] Charmander adicionado ao catálogo.");
@@ -30,7 +37,8 @@ export class TerminalController {
                 console.log("[AVISO] Charmander já está no catálogo.");
             }
 
-            const pikachuDuplicado = this.boxService.adicionar(pikachu);
+            const pikachuDuplicado =
+                await this.boxService.adicionar(pikachu);
 
             if (pikachuDuplicado) {
                 console.log("[OK] Pikachu adicionado ao catálogo.");
@@ -39,8 +47,11 @@ export class TerminalController {
             }
 
             try {
+
                 await this.pokeApiService.buscarPokemon("pokemon-inexistente");
+
             } catch (erro) {
+
                 if (erro instanceof Error) {
                     console.log(`[ERRO] ${erro.message}`);
                 }
@@ -54,7 +65,7 @@ export class TerminalController {
                 this.exibirPokemon(pokemon);
             });
 
-            const removido = this.boxService.remover(25);
+            const removido = await this.boxService.remover(25);
 
             if (removido) {
                 console.log("[OK] Pokémon removido do catálogo.");
@@ -69,7 +80,9 @@ export class TerminalController {
             catalogoDepoisDaRemocao.forEach((pokemon) => {
                 this.exibirPokemon(pokemon);
             });
+
         } catch (erro) {
+
             if (erro instanceof Error) {
                 console.log(`[ERRO] ${erro.message}`);
             }
@@ -77,8 +90,15 @@ export class TerminalController {
     }
 
     exibirPokemon(pokemon: Pokemon): void {
+
         console.log(
-            `#${pokemon.id} - ${pokemon.name} | Tipos: ${pokemon.types.join(", ")} | Altura: ${pokemon.height} | Peso: ${pokemon.weight}`
+            `#${pokemon.id} - ${pokemon.name} | ` +
+            `Tipos: ${pokemon.types.join(", ")} | ` +
+            `HP: ${pokemon.stats.hp} | ` +
+            `Attack: ${pokemon.stats.attack} | ` +
+            `Defense: ${pokemon.stats.defense} | ` +
+            `Altura: ${pokemon.height} | ` +
+            `Peso: ${pokemon.weight}`
         );
     }
 }
